@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Stream Downloader</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">YouTube Stream Downloader</div>
+  <div class="version">Local • yt-dlp</div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Download YouTube videos in the quality you want.</h1>
+    <p>Paste a YouTube URL and see the formats currently available for that video.</p>
+
+    <form id="extractForm" class="search">
+      <input id="url" type="url" placeholder="https://www.youtube.com/watch?v=..." required>
+      <button id="extractBtn" type="submit">Extract</button>
+    </form>
+    <div id="error" class="error hidden"></div>
+  </section>
+
+  <section id="video" class="video hidden">
+    <img id="thumb" class="thumb" alt="">
+    <div class="videoInfo">
+      <h2 id="title"></h2>
+      <div id="meta" class="muted"></div>
+    </div>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="toolbar">
+      <h2>Available formats</h2>
+      <div class="filters">
+        <button class="filter active" data-kind="all">All</button>
+        <button class="filter" data-kind="video_audio">Video + Audio</button>
+        <button class="filter" data-kind="video">Video only</button>
+        <button class="filter" data-kind="audio">Audio only</button>
+      </div>
+    </div>
+    <div id="formats" class="formats"></div>
+  </section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modalCard">
+    <div class="modalHead">
+      <strong id="modalTitle">Download</strong>
+      <button id="closeModal" class="icon">×</button>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div id="progressText" class="muted">Starting...</div>
+  </div>
+</div>
+
+<footer>
+  Uses <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noreferrer">yt-dlp</a>.
+  Only download content you are authorized to download.
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
